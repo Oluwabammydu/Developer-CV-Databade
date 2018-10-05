@@ -8,7 +8,8 @@ Trello Board link: https://trello.com/b/DwzdM2wM/sammler-developer-cv-database
 ![home page](https://user-images.githubusercontent.com/39812151/46533795-d728dc00-c89d-11e8-896d-d6b17e9e0edc.PNG)
 
 ### Search Page
-![](https://user-images.githubusercontent.com/39812151/46145654-c6061c80-c258-11e8-9298-5ca53735e0be.PNG)
+![search page](https://user-images.githubusercontent.com/39812151/46534752-35a38980-c8a1-11e8-9197-5d3aea6fceaa.PNG)
+
 
 
 
