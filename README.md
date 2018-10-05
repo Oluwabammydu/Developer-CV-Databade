@@ -5,7 +5,7 @@ Trello Board link: https://trello.com/b/DwzdM2wM/sammler-developer-cv-database
 ## Wire Frame Drawing:
 
 ### Home Page
-![](https://user-images.githubusercontent.com/39812151/46145653-c56d8600-c258-11e8-86db-4af446885e72.PNG)
+![home page](https://user-images.githubusercontent.com/39812151/46533795-d728dc00-c89d-11e8-896d-d6b17e9e0edc.PNG)
 
 ### Search Page
 ![](https://user-images.githubusercontent.com/39812151/46145654-c6061c80-c258-11e8-9298-5ca53735e0be.PNG)
