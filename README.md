@@ -40,7 +40,8 @@ The technologies that would be deployed for this project are:
 9. Virtual Environment
 
 
-##Running the Hello World App
+**Running the Hello World App**
+
 a. Clone the project repo to your computer
 b. Using command line, cd into the directory where the project is cloned to
 c. In your command line type python hello.py to run the app
