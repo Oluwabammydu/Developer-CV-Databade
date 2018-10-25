@@ -1,0 +1,38 @@
+{%extends "layout.html"%}
+{%block body%}
+
+<h1>Search Page</h1>
+<p>Search for skills you need your prospective employee to have</p>
+
+<form action="/search"  method="POST">
+  <div>
+    <label for="mySearch">Search for skills:</label>
+    <input type="search" id="mySearch" name="search"
+    placeholder="skills should be separated by comma" required
+    size="100" pattern="[a-zA-Z][a-zA-Z,]+">
+    <button>Search</button>
+    <span class="validity"></span>
+    <u>
+    	<li >name: {{rows [0]}}</li>
+    	<li>githublink: {{rows [1]}}</li>
+    </u>
+  </div>
+</form>
+<!--
+	[A-Z']|[A-Za-z',]+
+	[a-zA-Z][a-zA-Z,]
+	
+"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+
+(?=.*[a-z])(?=.*[A-Z])(?=.,)-->
+
+
+<!-- /input-group   ([A-Z]|[a-z]|,)-->
+<!-- /.col-lg-6 -->
+<!-- /.row -->
+<!--{% for post in posts %}
+	<h2>{{ post.skills }}</h2>
+	<p>By {{ post.name }} </p>
+{% endfor %}
+-->
+{%endblock%}
