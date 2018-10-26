@@ -8,31 +8,30 @@
   <div>
     <label for="mySearch">Search for skills:</label>
     <input type="search" id="mySearch" name="search"
-    placeholder="skills should be separated by comma" required
-    size="100" pattern="[a-zA-Z][a-zA-Z,]+">
+    placeholder="Input key word" required
+    size="100">
     <button>Search</button>
     <span class="validity"></span>
-    <u>
-    	<li >name: {{rows [0]}}</li>
-    	<li>githublink: {{rows [1]}}</li>
-    </u>
+    <table class="table table-bordered table-hover">
+                <!--
+                <thead>
+                  <th>Name</th>
+                  <th>Github Link</th>
+                </thead>
+                pattern="[A-Za-z]"
+            -->
+                 {% for row in rows %}
+                  <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                  </tr>
+                {% endfor %}
+
+    </table>
+
+    
   </div>
 </form>
-<!--
-	[A-Z']|[A-Za-z',]+
-	[a-zA-Z][a-zA-Z,]
+
 	
-"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-
-(?=.*[a-z])(?=.*[A-Z])(?=.,)-->
-
-
-<!-- /input-group   ([A-Z]|[a-z]|,)-->
-<!-- /.col-lg-6 -->
-<!-- /.row -->
-<!--{% for post in posts %}
-	<h2>{{ post.skills }}</h2>
-	<p>By {{ post.name }} </p>
-{% endfor %}
--->
 {%endblock%}

@@ -21,6 +21,8 @@ def home():
 		query = "INSERT INTO developers_profile(name, skills, github_link, file) VALUES('{}', '{}', '{}', '{}')".format(name, skills, github_link, cv_upload)
 		cur.execute(query)
 		conn.commit()
+		#if query 
+		#flash('Your Profile have been saved, thanks for using Sammler')
 		return redirect(url_for('status')) 
 		'''
 		except Exception as e:
@@ -29,57 +31,66 @@ def home():
 	return render_template('home.html')
 
 
+
+@app.route('/about', methods=['GET','POST'])
+def about():
+	return render_template("about.html")
+
+
 @app.route('/search', methods=['GET','POST'])
 def to_search():
-    if (request.method) == 'GET':
-        rows = []
-        return render_template('search.html' ,rows=rows)
+	if (request.method) == 'GET':
+		rows = []
+		return render_template('search.html' ,rows=rows)
 
 
-    if(request.method) == 'POST':
+	if(request.method) == 'POST':
 
-        search = request.form['search']
+		search = request.form['search']
 
-        conn = mariadb.connect(user='root',
-                                   password='bammy', 
-                                   database='sammler')
-        cur = conn.cursor()
-        query = "SELECT name,github_link FROM developers_profile WHERE skills LIKE %s"
-        search = ('%'+search+'%', )
-        cur.execute(query, search)
-        rows = cur.fetchall()
-        print(rows)
-        #cur.close()
-        #conn.close()
+		conn = mariadb.connect(user='root',
+								   password='bammy', 
+								   database='sammler')
+		cur = conn.cursor()
+		query = "SELECT name,github_link FROM developers_profile WHERE skills LIKE %s"
+		search = ('%'+search+'%', )
+		cur.execute(query, search)
+		rows = cur.fetchall()
+		print(rows)
+		cur.close()
+		conn.close()
+	#if rows not:
+		flash('Skills not found in database')
+		
 
-        return render_template("search.html", rows=rows)
-    '''
-    results = []
-    searc_string = request.form['search']
-    if search.data['search'] == '':
-        qr = conn.query(developers_profile)
-        results = qry.all()
-    if not results:
-        flash('No results found!')
-        return redirect('/search')
-    else:
-        #display results
-        return render_template('search.html', results=results)
-    
-    -----------------
-    results = []
-    search_string = search.data['search']
-    if search.data['search'] == '':
-        qry = db_session.query(developers_profile)
-        results = qry.all()
-    if not results:
-        flash('No results found!')
-        return redirect('/')
-    else:
-        # display results
-        return render_template('search.html', results=results)
-    -----------------
-    '''
+		return render_template("search.html", rows=rows)
+	'''
+	results = []
+	searc_string = request.form['search']
+	if search.data['search'] == '':
+		qr = conn.query(developers_profile)
+		results = qry.all()
+	if not results:
+		flash('No results found!')
+		return redirect('/search')
+	else:
+		#display results
+		return render_template('search.html', results=results)
+	
+	-----------------
+	results = []
+	search_string = search.data['search']
+	if search.data['search'] == '':
+		qry = db_session.query(developers_profile)
+		results = qry.all()
+	if not results:
+		flash('No results found!')
+		return redirect('/')
+	else:
+		# display results
+		return render_template('search.html', results=results)
+	-----------------
+	'''
 
    # query = request.args('search')
 # Query table
@@ -88,7 +99,7 @@ def to_search():
 
 # give connection back to the connection pool
 #conn.close()
-    
+	
 
 
 
@@ -104,4 +115,5 @@ def status():
 
 
 if __name__ == '__main__':
+	app.secret_key='secret_key'
 	app.run(debug=True)
