@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def home():
 	if request.method == 'POST':
-		# $variable = $_POST['name_of_select'];
 		name = request.form['name']
 		skills = request.form['skills']
 		github_link = request.form['githublink']
@@ -21,7 +20,7 @@ def home():
 		query = "INSERT INTO developers_profile(name, skills, github_link, file) VALUES('{}', '{}', '{}', '{}')".format(name, skills, github_link, cv_upload)
 		cur.execute(query)
 		conn.commit()
-		flash('Your Profile have been saved, thanks for using Sammler')
+		#flash('Your Profile have been saved, thanks for using Sammler')
 		return redirect(url_for('status')) 
 		
 	return render_template('home.html')
@@ -56,10 +55,9 @@ def to_search():
 		cur.close()
 		conn.close()
 	#if rows not:
-		flash('Skills not found in database')
 		
-
 		return render_template("search.html", rows=rows)
+
 
 @app.route("/status", methods=['GET', 'POST'])
 def status():
