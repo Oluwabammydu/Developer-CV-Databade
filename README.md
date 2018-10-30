@@ -33,10 +33,10 @@ The technologies that would be deployed for this project are:
 2. Flask
 3. MongoDB Database
 4. Bootstrap
-5. JavaScript
-6. Test Driven Development
-7. Travis CI
-8. Virtual Environment
+5. Test Driven Development
+6. Travis CI
+7. Virtual Environment
+
 
 
 **Running the Hello World App**
